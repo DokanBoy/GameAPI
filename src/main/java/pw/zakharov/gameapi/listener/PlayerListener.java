@@ -18,6 +18,6 @@ public final class PlayerListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
 
         // Create new data if doesn't exists.
-        PlayerData.getFor(e.getPlayer());
+        PlayerData data = PlayerData.getFor(e.getPlayer());
     }
 }

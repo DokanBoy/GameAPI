@@ -3,6 +3,7 @@ package pw.zakharov.gameapi.data;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * A section of the data.db
@@ -25,7 +26,7 @@ public class PlayerData extends DataFile {
      * @return the player data
      */
     public static PlayerData getFor(Player player) {
-        return getFor(player.getName());
+        return getFor(player.getUniqueId());
     }
 
     /**
@@ -36,14 +37,14 @@ public class PlayerData extends DataFile {
      * @param name the player's name
      * @return the data for the player
      */
-    public static PlayerData getFor(String name) {
+    public static PlayerData getFor(UUID uuid) {
         synchronized (stored) {
-            PlayerData data = stored.get(name);
+            PlayerData data = stored.get(uuid.toString());
 
             if (data == null) {
-                data = new PlayerData(name);
+                data = new PlayerData(uuid.toString());
 
-                stored.put(name, data);
+                stored.put(uuid.toString(), data);
             }
 
             return data;
@@ -56,7 +57,7 @@ public class PlayerData extends DataFile {
     public final int getNuggets() {
         load(); // In case other plugin has changed the value
 
-        return getInt("Nuggets", 0);
+        return getInt("nuggets", 0);
     }
 
     /**
@@ -65,7 +66,7 @@ public class PlayerData extends DataFile {
      * @param nuggets the nuggets, new value
      */
     public final void setNuggets(int nuggets) {
-        save("Nuggets", nuggets);
+        save("nuggets", nuggets);
 
         load();
     }
