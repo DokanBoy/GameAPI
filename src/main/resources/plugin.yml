@@ -1,7 +1,5 @@
 name: ${project.artifactId}
-main: ${mainClass}
+main: ${plugin.mainClass}
 version: ${project.version}
-api-version: 1.13
-author: ${author}
-loadbefore: [CoreArena, Puncher, AutoPlay]
-commands: 
+api-version: 1.12
+authors: [ 'kangarko', 'DokanBoy' ]
