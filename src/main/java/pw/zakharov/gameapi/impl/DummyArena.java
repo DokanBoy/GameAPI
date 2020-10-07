@@ -10,7 +10,6 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import pw.zakharov.gameapi.*;
@@ -203,7 +202,7 @@ public abstract class DummyArena implements Arena {
     }
 
     @Override
-    public void onPlayerPickupTag(PlayerPickupItemEvent event, ExpItem expItem) {
+    public void onPlayerPickupTag(EntityPickupItemEvent event, ExpItem expItem) {
     }
 
     @Override
@@ -232,7 +231,7 @@ public abstract class DummyArena implements Arena {
      * @param event the event
      * @return true if the event was not cancelled, meaning it has passed.
      */
-    private final boolean callEvent(org.bukkit.event.Event event) {
+    private boolean callEvent(org.bukkit.event.Event event) {
         Bukkit.getPluginManager().callEvent(event);
 
         return !(event instanceof Cancellable) || !((Cancellable) event).isCancelled();

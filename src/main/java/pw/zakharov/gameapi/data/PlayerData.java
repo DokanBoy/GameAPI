@@ -15,7 +15,7 @@ public class PlayerData extends DataFile {
     private static final HashMap<String, PlayerData> stored = new HashMap<>();
 
     private PlayerData(String name) {
-        super("Players." + name);
+        super("players." + name);
     }
 
     /**

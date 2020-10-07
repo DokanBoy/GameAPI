@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 import pw.zakharov.gameapi.cause.DeathCause;
@@ -297,7 +296,7 @@ public interface Arena {
      * @param event,   the player
      * @param expItem, the exp item
      */
-    void onPlayerPickupTag(PlayerPickupItemEvent event, ExpItem expItem);
+    void onPlayerPickupTag(EntityPickupItemEvent event, ExpItem expItem);
 
     /**
      * Called on entity spawn
